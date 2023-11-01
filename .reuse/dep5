@@ -1,0 +1,20 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: semnix
+Upstream-Contact: Christina Sørensen <christina@cafkafk.com>
+Source: https://github.com/semnix
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
+
+Files: flake.lock .envrc .gitmodules
+Copyright: 2023 Christina Sørensen
+License: AGPL-3.0-only
+
+### FOREIGN LICENSES ###
+
+Files: flake-utils/*
+Copyright: 2020 zimbatm
+License: MIT
