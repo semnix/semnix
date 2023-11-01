@@ -23,6 +23,7 @@ bumpFromUpstream:
     just naersk
     just treefmt-nix
     just rust-overlay
+    just pre-commit-hooks-nix
     git submodule status
 
 bumpRepo REPO:
@@ -91,6 +92,19 @@ rust-overlay:
     cd repos/rust-overlay
     # We ignore errors because it's likely it already exists
     git remote add upstream git@github.com:oxalica/rust-overlay.git && echo "added upstream" || echo "upstream already exists";
+    git fetch upstream
+    git rebase upstream/master
+    git push
+    cd ../..
+
+# BUG: Original name causes issues, can't have .
+# Ensures a upstream remote exists and rebase it on top of submodule.
+pre-commit-hooks-nix:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd repos/pre-commit-hooks.nix
+    # We ignore errors because it's likely it already exists
+    git remote add upstream git@github.com:cachix/pre-commit-hooks.nix.git && echo "added upstream" || echo "upstream already exists";
     git fetch upstream
     git rebase upstream/master
     git push

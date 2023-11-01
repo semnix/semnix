@@ -10,3 +10,6 @@
 [submodule "repos/rust-overlay"]
 	path = repos/rust-overlay
 	url = git@github.com:semnix/rust-overlay.git
+[submodule "repos/pre-commit-hooks.nix"]
+	path = repos/pre-commit-hooks.nix
+	url = git@github.com:semnix/pre-commit-hooks.nix.git

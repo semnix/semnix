@@ -30,3 +30,7 @@ License: MIT
 Files: repos/rust-overlay/*
 Copyright: oxalica
 License: MIT
+
+Files: repos/pre-commit-hooks.nix/*
+Copyright: Hercules Labs OÜ
+License: Apache-2.0
