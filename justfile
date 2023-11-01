@@ -22,6 +22,7 @@ bumpFromUpstream:
     just flake-utils
     just naersk
     just treefmt-nix
+    just rust-overlay
     git submodule status
 
 bumpRepo REPO:
@@ -80,6 +81,18 @@ treefmt-nix:
     git remote add upstream git@github.com:numtide/treefmt-nix.git && echo "added upstream" || echo "upstream already exists";
     git fetch upstream
     git rebase upstream/main
+    git push
+    cd ../..
+
+# Ensures a upstream remote exists and rebase it on top of submodule.
+rust-overlay:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd repos/rust-overlay
+    # We ignore errors because it's likely it already exists
+    git remote add upstream git@github.com:oxalica/rust-overlay.git && echo "added upstream" || echo "upstream already exists";
+    git fetch upstream
+    git rebase upstream/master
     git push
     cd ../..
 

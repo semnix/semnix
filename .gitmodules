@@ -7,3 +7,6 @@
 [submodule "repos/treefmt-nix"]
 	path = repos/treefmt-nix
 	url = git@github.com:semnix/treefmt-nix.git
+[submodule "repos/rust-overlay"]
+	path = repos/rust-overlay
+	url = git@github.com:semnix/rust-overlay.git
