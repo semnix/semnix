@@ -27,4 +27,15 @@ flake-utils:
     git rebase upstream/main
     cd ../..
 
+# Ensures a upstream remote exists and rebase it on top of submodule.
+naersk:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd repos/naersk
+    # We ignore errors because it's likely it already exists
+    git remote add upstream git@github.com:nix-community/naersk.git && echo "added upstream" || echo "upstream already exists";
+    git fetch upstream
+    git rebase upstream/master
+    cd ../..
+
 # ---

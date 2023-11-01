@@ -1,3 +1,6 @@
 [submodule "repos/flake-utils"]
 	path = repos/flake-utils
 	url = git@github.com:semnix/flake-utils.git
+[submodule "repos/naersk"]
+	path = repos/naersk
+	url = git@github.com:semnix/naersk.git

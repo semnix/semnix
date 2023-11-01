@@ -18,3 +18,7 @@ License: AGPL-3.0-only
 Files: repos/flake-utils/*
 Copyright: 2020 zimbatm
 License: MIT
+
+Files: repos/naersk/*
+Copyright: 2019 Nicolas Mattia
+License: MIT
