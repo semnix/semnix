@@ -11,15 +11,18 @@ pullEach:
 bumpFromUpstream:
     just pullEach
     just flake-utils
+    git submodule status
 
 
 # --- Upstream Helpers
 
 # Ensures a upstream remote exists and rebase it on top of submodule.
 flake-utils:
+    #!/usr/bin/env bash
+    set -euxo pipefail
     cd flake-utils
     # We ignore errors because it's likely it already exists
-    -git remote add upstream git@github.com:numtide/flake-utils.git
+    git remote add upstream git@github.com:numtide/flake-utils.git && echo "added upstream" || echo "upstream already exists";
     git fetch upstream
     git rebase upstream/main
     cd ..
