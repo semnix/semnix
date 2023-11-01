@@ -22,3 +22,7 @@ License: MIT
 Files: repos/naersk/*
 Copyright: 2019 Nicolas Mattia
 License: MIT
+
+Files: repos/treefmt-nix/*
+Copyright: 2021 NumTide Ltd and contributors
+License: MIT

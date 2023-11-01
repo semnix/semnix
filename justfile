@@ -7,11 +7,21 @@
 pullEach:
     git submodule foreach git pull
 
+# Add repo to semnix
+addRepo REPO REMOTE:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd repos
+    git clone {{REMOTE}}
+    cd ..
+    git submodule add {{REMOTE}} repos/{{REPO}}
+
 # Bump all submodules with upstream.
 bumpFromUpstream:
     just pullEach
     just flake-utils
     just naersk
+    just treefmt-nix
     git submodule status
 
 bumpRepo REPO:
@@ -36,6 +46,7 @@ bumpRepoBash REPO:
 # --- Upstream Helpers
 # These are DRY DRY DRY, should be made into a single recipe
 
+
 # Ensures a upstream remote exists and rebase it on top of submodule.
 flake-utils:
     #!/usr/bin/env bash
@@ -57,6 +68,18 @@ naersk:
     git remote add upstream git@github.com:nix-community/naersk.git && echo "added upstream" || echo "upstream already exists";
     git fetch upstream
     git rebase upstream/master
+    git push
+    cd ../..
+
+# Ensures a upstream remote exists and rebase it on top of submodule.
+treefmt-nix:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    cd repos/treefmt-nix
+    # We ignore errors because it's likely it already exists
+    git remote add upstream git@github.com:numtide/treefmt-nix.git && echo "added upstream" || echo "upstream already exists";
+    git fetch upstream
+    git rebase upstream/main
     git push
     cd ../..
 

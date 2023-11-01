@@ -4,3 +4,6 @@
 [submodule "repos/naersk"]
 	path = repos/naersk
 	url = git@github.com:semnix/naersk.git
+[submodule "repos/treefmt-nix"]
+	path = repos/treefmt-nix
+	url = git@github.com:semnix/treefmt-nix.git
