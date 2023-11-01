@@ -3,9 +3,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-only
 {
-  projectRootFile = "Cargo.toml";
+  projectRootFile = "flake.nix";
   programs = {
     alejandra.enable = true;
     rustfmt.enable = true;
+  };
+  settings.formatter = {
+    alejandra.excludes = ["repos/*"];
+    rustfmt.excludes = ["repos/*"];
   };
 }

@@ -45,9 +45,7 @@
         # };
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-
         # darwinBuildInputs = with pkgs; with darwin.apple_sdk.frameworks; [libiconv Security SystemConfiguration];
-
         # buildInputs = with pkgs; [pkg-config openssl] ++ lib.optionals stdenv.isDarwin darwinBuildInputs;
       in rec {
         # For `nix fmt`

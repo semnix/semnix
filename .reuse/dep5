@@ -15,6 +15,6 @@ License: AGPL-3.0-only
 
 ### FOREIGN LICENSES ###
 
-Files: flake-utils/*
+Files: repos/flake-utils/*
 Copyright: 2020 zimbatm
 License: MIT
