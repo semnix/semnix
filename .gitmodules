@@ -1,0 +1,3 @@
+[submodule "flake-utils"]
+	path = flake-utils
+	url = git@github.com:semnix/flake-utils.git
