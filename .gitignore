@@ -13,3 +13,4 @@ powertest.yaml
 /result
 
 .direnv
+.pre-commit-config.yaml
